@@ -37,28 +37,7 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
 
-         if (Input.GetMouseButtonDown(0))
-        {
-            // get point in the middle of the screen
-            Vector3 point = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2, 0);
-
-            // create a ray from the point in the direction of the camera
-            Ray ray = cam.ScreenPointToRay(point);
-
-            RaycastHit hit; // stores ray intersection information
-            if (Physics.Raycast(ray, out hit))
-            {
-                // get the GameObject that was hit
-                GameObject hitObject = hit.transform.gameObject;
-
-                OpenComputer target = hitObject.GetComponent<OpenComputer>();
-
-                if(target !=null)
-                {
-                    target.goIntoPC();
-                }
-            }
-        }
+         
     }
 
     void OnGUI()

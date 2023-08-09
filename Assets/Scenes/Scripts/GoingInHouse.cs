@@ -5,20 +5,28 @@ using UnityEngine;
 public class GoingInHouse : MonoBehaviour
 {
     public GameObject Player;
-    private bool playerEntered;
+    public bool playerInOffice;
     // Start is called before the first frame update
     void Start()
     {
-        playerEntered = false;
+        playerInOffice = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void goOffice()
     {
         
+        Player.transform.position = new Vector3(64.65f, 1.17f, 35.49f);
+        playerInOffice = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void goHome()
+    {
+        
+        Player.transform.position = new Vector3(62.168f, 1.17f, 61.84f);
+        playerInOffice = false;
+    }
+
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Door" && !playerEntered)
         {
@@ -30,5 +38,5 @@ public class GoingInHouse : MonoBehaviour
             Player.transform.position = new Vector3(38.28f, 1.28f, 46.87f);
             playerEntered = false;
         }
-    }
+    }*/
 }
